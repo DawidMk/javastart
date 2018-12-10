@@ -22,10 +22,16 @@ public class Methods {
 //        int days = time / 1440;
 //        int hours = time / 60;
 //        int minutes = time % 60;
-        int years = time / 525600; // days*365 fixme
-        int days = years / 1440; // 24*60 fixme
-        int hours = days / 24;
-        int minutes = time % 60;
+//        int years = time / 525600; // days*365 fixme
+//        int days = years / 1440; // 24*60 fixme
+//        int hours = time / 60;
+//        int minutes = time % 60;
+        int years = time / (60 * 24 * 365); // days*365 fixme
+        int y_rest = time % (60 * 24 * 365);
+        int days = y_rest / (60 * 24); // 24*60 fixme
+        int d_rest = y_rest % (60 * 24);
+        int hours = d_rest / 60;
+        int minutes = d_rest % 60;
         return years + "y " + days + "d " + hours + "h " + minutes + "m";
 
 
@@ -51,9 +57,9 @@ public class Methods {
     public static void main(String[] args) {
         int a = 2;
         int b = 3;
-        int minutes = 525600;
+        int time = 601;
 
-        System.out.println(rectArea(a, b));
+        /*System.out.println(rectArea(a, b));
         System.out.println(60 * 24 * 365);
 
         System.out.println(minutesToDate(minutes));
@@ -62,13 +68,12 @@ public class Methods {
 
         double w = 80;
         double h = 1.85;
-        System.out.println(bmi(w, h));
-
-
-
-    }
-
+        System.out.println(bmi(w, h));*/
+        System.out.println(minutesToDate(530000));
 
 
     }
+
+
+}
 
