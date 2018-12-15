@@ -29,7 +29,18 @@ public class DateToVars {
         int fromMidnite = hour*60+minute;
         int fullDay = 24*60;
         int diff = fromMidnite*100 / fullDay;
-        System.out.println(hour + ":" + minute + " " + day + "." + month + "." + year+"; ile % doby minęło: "+diff);
+        String hourValue;
+        if(hour < 10){
+            hourValue = "0"+hour;
+        }
+        else{
+            hourValue = Integer.toString(hour);
+        }
+        String minuteVal = (minute<10)?("0"+minute):(Integer.toString(minute));
+
+
+
+        System.out.println(hourValue + ":" + minuteVal + " " + day + "." + month + "." + year+"; ile % doby minęło: "+diff);
 
 
 
