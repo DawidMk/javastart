@@ -6,7 +6,11 @@ public class OOP {
     public static void main(String[] args) {
         Car car = new Car();
         car.setManufacturer("Skoda");
+        car.setModel("Fabia");
+        System.out.println(car); //todo
         car.setBasePrice(BigDecimal.valueOf(1000));
+
+        System.out.println(car);
 
         CarOption leatherSeats = new CarOption();
         leatherSeats.setOptionName("leather seats");
@@ -25,18 +29,19 @@ public class OOP {
         System.out.println(leatherSeats.isChecked());
         System.out.print("sumaryczna cena ");
         System.out.println(car.fullPrice());
+        System.out.println(car.toString());
+
+
     }
+
     public static BigDecimal fullPrice_old(Car car) { //przykład użycia metody z odwołaniami do metod
         BigDecimal sum = car.getBasePrice();
         for (CarOption i : car.getAdditionalOptions()) {
             sum = sum.add(i.getOptionPrice());
         }
         return sum;
+
     }
-
-
-
-
 
 
 }

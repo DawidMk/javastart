@@ -22,8 +22,6 @@ public class Fibonacci {
             System.out.println(sum);
             f0 = f1;
             f1 = sum;
-
-
             counter++;
         }
     }

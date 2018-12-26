@@ -15,10 +15,12 @@ public class RandomGen {
         }
         return tab;
     }
+    protected static int a(int a){
+        return a;
+    }
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(createRandomArray(5)));
-
 
     }
 }

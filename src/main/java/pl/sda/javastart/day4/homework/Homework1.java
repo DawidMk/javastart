@@ -230,6 +230,100 @@ public class Homework1 {
         }
     }
 
+    private static void calculator() {
+        Scanner scanner = new Scanner(System.in);
+
+        String calc;
+        double a;
+        double b;
+        double result;
+        do {
+//        while(!calc.equals("koniec")){
+            System.out.println("lets'a go!(dostępne działania +,-: ");
+            a = scanner.nextDouble();
+            scanner.nextLine();
+//            System.out.println("podaj działanie: + , - ");
+            calc = scanner.nextLine();
+//            System.out.println(" podaj b: ");
+            b = scanner.nextDouble();
+            scanner.nextLine();
+
+
+            if (calc.equals("+")) {
+
+                /*System.out.println("podaj a: ");
+                a = scanner.nextDouble();
+                System.out.println(" podaj b: ");
+                b = scanner.nextDouble();*/
+                result = a + b;
+                System.out.println(result);
+
+            } else if (calc.equals("-")) {
+
+               /* System.out.println("podaj a: ");
+                a = scanner.nextDouble();
+                System.out.println(" podaj b: ");
+                b = scanner.nextDouble();*/
+                result = a - b;
+                System.out.println(result);
+            }
+            System.out.println("Dalej? (koniec)");
+            calc = scanner.nextLine();
+
+        }
+
+
+        while (!calc.equals("koniec"));
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------------------------
+    private static void switchWelcome() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("wybierz język: PL, EN, DE, FR: ");
+        String language = scanner.nextLine();
+
+        switch (language) {
+            case "PL":
+                System.out.println("witojcie!");
+                break;
+            case "EN":
+                System.out.println("hello!");
+                break;
+            case "DE":
+                System.out.println("wilkommen!");
+                break;
+            case "FR":
+                System.out.println("bonżur!");
+                break;
+            default:
+                System.out.println("nieprawidłowa opcja; inicjalizacja: ang");
+                System.out.println("hello!");
+        }
+
+
+    }
+
+    //----------------------------------------------------------------------------------------------------------------------
+    private static void xmasTree2() {
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10 - i; j++)
+                System.out.print(".");
+//            for (int k = 0; k < (2 * i + 1); k++)
+//                System.out.print("*");
+            for (int k = 1; k <= i; k++) {
+                System.out.print(k);
+            }
+            for (int m = i; m >= i; m--) {
+                System.out.print(m);
+                for (int l = 0; l < 10 - i; l++)
+                    System.out.print(".");
+                System.out.println();
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
 //        inputNums(4);
 //        calulationsONNumbers();
@@ -241,8 +335,26 @@ public class Homework1 {
 //        xmasTreeSameNumberPerRow(5);
 //        fibonacciWhile(10);
 //        nonDividableByThree();
-        silnia(12);
+//        silnia(12);
+//        calculator();
+//        xmasTree2();
 
-    }
-}
+        for (int j = 1; j <= 10; j++) {
+            for(int i = 10-j; i >= 0; i--){
+                System.out.print(".");
+            }
+            for (int i = 1; i < j; i++) {
+                System.out.print(i);
+            }
+            for (int i = j; i >= 1; i--) {
+                System.out.print(i);
+            }
+            for(int i = 10-j; i >= 0; i--){
+                System.out.print(".");
+            }
+            System.out.println();
+
+        }
+
+    }}
 
