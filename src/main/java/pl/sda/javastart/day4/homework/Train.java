@@ -55,7 +55,7 @@ public class Train {
 
     public void attachSingleCar(Car singleCar) {
 
-            setAttachedCars(new Car[]{});
+//            setAttachedCars(new Car[]{});
 
             attachedCars = Arrays.copyOf(attachedCars, attachedCars.length + 1);
             attachedCars[attachedCars.length - 1] = singleCar;

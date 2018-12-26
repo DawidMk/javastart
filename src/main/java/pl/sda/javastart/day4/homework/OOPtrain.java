@@ -22,7 +22,7 @@ public class OOPtrain {
         car3.setCarClass(3);
         car3.setWeight(60);
         car3.setNumOfPassengers(100);
-//        train.setAttachedCars(new Car[]{});
+        train.setAttachedCars(new Car[]{});
 
 
 
