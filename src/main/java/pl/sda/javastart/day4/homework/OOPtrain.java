@@ -22,7 +22,8 @@ public class OOPtrain {
         car3.setCarClass(3);
         car3.setWeight(60);
         car3.setNumOfPassengers(100);
-        train.setAttachedCars(new Car[]{});
+//        train.setAttachedCars(new Car[]{});
+
 
 
 
@@ -32,11 +33,14 @@ public class OOPtrain {
         train.setNumOfPassengers(220);
 //        train.setAttachedCars(new Car[]{car1,car2});
 //        train.setAttachedCars(new Car[]{car1});
-//        train.attachSingleCar(car1);
+        train.attachSingleCar(car1);
         System.out.println(train.toString());
         System.out.println();
-        train.attachSingleCar(car1);
+//        train.attachSingleCar(car1);
         train.attachSingleCar(car2);
+        System.out.println(train.toString());
+        System.out.println();
+        train.attachSingleCar(car3);
         System.out.println(train.toString());
     }
 }

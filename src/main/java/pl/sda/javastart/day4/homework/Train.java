@@ -55,12 +55,12 @@ public class Train {
 
     public void attachSingleCar(Car singleCar) {
 
-//            setAttachedCars(new Car[]{});
-
-            attachedCars = Arrays.copyOf(attachedCars, attachedCars.length + 1);
-            attachedCars[attachedCars.length - 1] = singleCar;
+        if (getAttachedCars() == null) {
+            setAttachedCars(new Car[]{});
         }
-
+        attachedCars = Arrays.copyOf(attachedCars, attachedCars.length + 1);
+        attachedCars[attachedCars.length - 1] = singleCar;
+    }
 
 
     @Override
