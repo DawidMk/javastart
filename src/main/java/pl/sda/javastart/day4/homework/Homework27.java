@@ -2,7 +2,7 @@ package pl.sda.javastart.day4.homework;
 
 import java.util.Arrays;
 
-public class Homework26 {
+public class Homework27 {
 
     public static int[] concatenateArrays(int[] firstTab, int[] secondTab) {
         int lent = firstTab.length + secondTab.length;
@@ -46,6 +46,32 @@ public class Homework26 {
         return result;
 
     }
+    /*
+       public static void removeDuplicates(int[] first, int[] second) {
+        int[] sum = concatenateArrays(first, second);
+        Arrays.sort(sum);
+        int[] result = {sum[0]};
+
+
+
+        for (int i = 0; i < sum.length; i++) {
+            if (i == 0) {
+                continue;
+            }
+
+                if (sum[i] != sum[i - 1]) {
+                    result = Arrays.copyOf(result,result.length+1);
+                    result[i] = sum[i];
+                }
+                else{
+                    result = Arrays.copyOf(result,result.length+1);
+            }
+        }
+
+        System.out.println(Arrays.toString(result));
+
+    }
+     */
 
     public static void main(String[] args) {
         int[] tabFirst = {0,3,4,6,2,1};
