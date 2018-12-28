@@ -113,9 +113,9 @@ public class Homework27 {
         int[] tabThird = concatenateAndSortArray(tabFirst, tabSec);
         int[] tabFourth = concatenateArrays(tabFirst, tabSec);
         Arrays.sort(tabFourth);
-//        System.out.println(Arrays.toString(concatenateAndSortArray(tabFirst, tabSec)));
+        System.out.println(Arrays.toString(concatenateAndSortArray(tabFirst, tabSec)));
 //        System.out.println(Arrays.toString(removeDuplicates(tabThird)));
-        removeDupesStream(tabFourth);
+//        removeDupesStream(tabFourth);
 
 
     }
