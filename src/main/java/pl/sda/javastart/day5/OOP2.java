@@ -1,25 +1,41 @@
 package pl.sda.javastart.day5;
 
-import pl.sda.javastart.day1.Calculator;
-
 public class OOP2 {
 
     public static void main(String[] args) {
-    /*    personsExample();
-        referenceExample();
-//        Person.printSth();
-        Person person1 = new Person();
-        Person person2 = new Person();
+//        personsExample();
+//        referenceExample();*/
+//        staticFinal();
+        Person person1 = new Person("Anna", "Joanna");
+        Person person2 = new Person("Anna", "Joanna");
         System.out.println(person1.getIdentity());
         System.out.println(person2.getIdentity());
-        System.out.println("ile jest ludzi na świecie " + Person.counter);*/
+    }
+
+    private static void staticFinal() {
+        Person person1 = new Person();
+//      Person person2 = new Person();
+//        System.out.println(person1.getIdentity());
+//        System.out.println(person2.getIdentity());
+//        System.out.println("ile jest ludzi na świecie " + Person.counter);*/
 
 
-        System.out.println(CalculatorUtils.addStatic(1, 2));
-        CalculatorUtils calc = new CalculatorUtils();
-        System.out.println(calc.add(1, 23));
+//        System.out.println(CalculatorUtils.addStatic(1, 2));
+//        CalculatorUtils calc = new CalculatorUtils();
+//        System.out.println(calc.add(1, 23));
 
-
+        person1.setName("Janina");
+        ExperimentalObject obj = new ExperimentalObject(1, 2, person1);
+        System.out.println(obj.getFinalImmutableVal());
+        System.out.println(obj.getNotFinalImmutableVal());
+        obj.setNotFinalImmutableVal(6);
+        System.out.println(obj.getNotFinalImmutableVal());
+        System.out.println(obj.getPerson().getName());
+        obj.getPerson().setName("Ola");
+        System.out.println(obj.getPerson().getName());
+        Person personFromObj = obj.getPerson();
+        personFromObj.setName("Anna");
+        System.out.println(personFromObj.getName());
     }
 
     private static void referenceExample() {

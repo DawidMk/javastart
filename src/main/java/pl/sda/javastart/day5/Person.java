@@ -2,11 +2,38 @@ package pl.sda.javastart.day5;
 
 import java.util.Objects;
 
-public class Person{
+public class Person {
     private String name;
     private String lastName;
     private int identity;
-    static int counter = 0; //albo Integer
+    static int counter; //int albo Integer
+
+    static {
+        counter = 0;
+    }
+
+    {
+//        System.out.println("blok inicjalizujący");
+        this.identity = counter++;
+    }
+
+    public Person() {
+    }
+
+    public Person(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    public Person(String name, String lastName, int identity) {
+//        setName(name);
+//        setLastName(lastName);
+//        setIdentity(identity);
+        this.name = name;
+        this.lastName = lastName;
+        this.identity = identity;
+    }
+
 
     public String getName() {
         return name;
@@ -31,21 +58,9 @@ public class Person{
     public void setIdentity(int identity) {
         this.identity = identity;
     }
-    public static void printSth(){
+
+    public static void printSth() {
         System.out.println("sth");
-    }
-
-    public Person(){
-        this.identity = ++counter;
-    }
-
-    public Person(String name, String lastName, int identity){
-//        setName(name);
-//        setLastName(lastName);
-//        setIdentity(identity);
-        this.name = name;
-        this.lastName = lastName;
-        this.identity = identity;
     }
 
     @Override

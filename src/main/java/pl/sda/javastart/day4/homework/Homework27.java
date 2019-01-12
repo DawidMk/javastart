@@ -89,22 +89,20 @@ public class Homework27 {
         return temp;
     }
 
-    //    IntStream.of(tab).anyMatch(x -> x == input))
- /*   private static void removeDupesStream(int[] tab) {
+ /*   //    IntStream.of(tab).anyMatch(x -> x == input))
+    private static void removeDupesStream(int[] tab) {
         int[] temp = new int[]{tab[0]};
-        for(int i : temp){
-            for(int j : tab){
-                if(IntStream.of(temp).anyMatch(x -> x != j)){
-                    temp = Arrays.copyOf(temp, temp.length + 1);
-                    temp[i]=j;
-                    i;
+        for (int j  : temp) {
+            if (IntStream.of(tab).anyMatch(x -> x != j)) {
+                temp = Arrays.copyOf(temp, temp.length + 1);
+                temp[j] = x;
+                j++;
 
-                }
+
             }
+        }
         System.out.println(Arrays.toString(temp));
-        }}*/
-
-
+    }*/
 
 
     public static void main(String[] args) {
@@ -116,6 +114,15 @@ public class Homework27 {
         System.out.println(Arrays.toString(concatenateAndSortArray(tabFirst, tabSec)));
 //        System.out.println(Arrays.toString(removeDuplicates(tabThird)));
 //        removeDupesStream(tabFourth);
+        for (int j : tabSec) {
+            if (IntStream.of(tabFirst).anyMatch(x -> x == j)) {
+                System.out.println(j);
+
+            }
+//            else{
+//                System.out.println("niet "+j);
+//            }
+        }
 
 
     }

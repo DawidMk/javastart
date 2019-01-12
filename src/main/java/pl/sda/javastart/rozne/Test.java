@@ -1,15 +1,132 @@
 package pl.sda.javastart.rozne;
 
+import com.sun.deploy.util.ArrayUtil;
+
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        String[] tab = new String[5];
-//        nameList(tab);
-        nElements(5);
 
 
     }
+  /*  public String withoutX2(String str) {
+        char tab[] = str.toCharArray();
+    }*/
+
+
+
+    public static void circumference(double rodHeight, double shadowLength, double distanceToWell) {
+
+        double a = shadowLength / rodHeight;
+        double angle = Math.atan(a);
+        double b = a / 360;
+        double out = 2 * Math.PI * distanceToWell / angle;
+        //Your code goes here
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(out);
+    }
+
+
+    private static String printer(String str) {
+        System.out.println(str);
+        return str;
+    }
+
+    private void metoda1() {
+        System.out.println("nic tu nie ma");
+    }
+
+    public static String seriesSum(int n) {
+        double counter = 1;
+        double sum = 0;
+        for (int i = 0; i < n; i++)
+
+        {
+            sum = sum + (1 / counter);
+            counter = counter + 3;
+
+        }
+        DecimalFormat result = new DecimalFormat("##.00");
+        return (result.format(sum));
+
+    }
+
+
+    public static String printerError(String s) {
+        char[] tab = s.toCharArray();
+        int length = tab.length;
+        int count = 0;
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] > 109) {
+                count = count + 1;
+            }
+
+
+        }
+        return count + "/" + length;
+
+    }
+
+    public static int getCount(String str) {
+        int vowelsCount = 0;
+        char[] tab = str.toCharArray();
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] == 'a' || tab[i] == 'e' || tab[i] == 'i' || tab[i] == 'o' || tab[i] == 'u') {
+                vowelsCount = vowelsCount + 1;
+            }
+        }
+        return vowelsCount;
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------
+    public static String everyNth(String str, int n) {
+        String result = "";
+
+        if (str.length() > 0) {
+            for (int i = 0; i <= str.length(); i = i + n) {
+                char a = str.toCharArray()[i];
+                result = result + a;
+
+            }
+
+        }
+        return result;
+    }
+
+    private static int largestNumber(int data) {
+
+        int[] times = new int[10];
+        while (data != 0) {
+            int val = data % 10;
+            times[val]++;
+            data = data / 10;
+        }
+        String largestNumber = "";
+        for (int i = 9; i >= 0; i--) {
+            for (int j = 0; j < times[i]; j++) {
+                largestNumber = largestNumber + i;
+            }
+        }
+        return Integer.parseInt(largestNumber);
+    }
+
+    private static void sorter(int num) {
+        String[] numbers = (Integer.toString(Integer.valueOf(num))).split("");
+        String[] nums = Integer.toString(num).split("");
+        Arrays.sort(nums);
+
+        String result = "";
+
+        for (String s : nums) {
+            result = s + result;
+        }
+        System.out.println(result);
+//        System.out.println(Integer.parseInt(result));
+    }
+
 
     public static void nameList(String[] tab) {
         Scanner scanner = new Scanner(System.in);

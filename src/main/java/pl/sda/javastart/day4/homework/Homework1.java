@@ -323,6 +323,58 @@ public class Homework1 {
         }
     }
 
+    //------------------26---------------------------------------------------------------
+    public static int[] concatenateArrays(int[] firstTab, int[] secondTab) {
+//        int[] result = new int[firstTab.length];
+        int lent = firstTab.length + secondTab.length;
+        int[] result = Arrays.copyOf(firstTab, lent);
+        for (int i = 0; i < secondTab.length; i++) {
+            result[firstTab.length + i] = secondTab[i];
+        }
+        return result;
+
+    }
+
+    public static int[] concatenateAndSortArray(int[] firstTab, int[] secondTab) {
+//        Arrays.sort(firstTab);
+//        Arrays.sort(secondTab);
+        int lent = firstTab.length + secondTab.length;
+        int[] result = Arrays.copyOf(firstTab, lent);
+        for (int i = 0; i < secondTab.length; i++) {
+            result[firstTab.length + i] = secondTab[i];
+        }
+        Arrays.sort(result);
+        return result;
+
+    }
+
+    public static void removeDuplicates(int[] first, int[] second) {
+        int[] sum = concatenateArrays(first, second);
+        Arrays.sort(sum);
+        int[] result = {sum[0]};
+//        String output = "";
+
+
+        for (int i = 0; i < sum.length; i++) {
+            if (i == 0) {
+                continue;
+//                output = output+sum[i];
+            }
+
+                if (sum[i] != sum[i - 1]) {
+                    result = Arrays.copyOf(result,result.length+1);
+                    result[i] = sum[i];
+                }
+                else{
+                    result = Arrays.copyOf(result,result.length+1);
+
+            }
+        }
+
+        System.out.println(Arrays.toString(result));
+
+    }
+//    IntStream.of(tab).anyMatch(x -> x == input))
 
     public static void main(String[] args) {
 //        inputNums(4);
@@ -339,7 +391,7 @@ public class Homework1 {
 //        calculator();
 //        xmasTree2();
 
-        for (int j = 1; j <= 10; j++) {
+       /* for (int j = 1; j <= 10; j++) {
             for(int i = 10-j; i >= 0; i--){
                 System.out.print(".");
             }
@@ -352,9 +404,13 @@ public class Homework1 {
             for(int i = 10-j; i >= 0; i--){
                 System.out.print(".");
             }
-            System.out.println();
+            System.out.println();}*/
+        int[] tab1 = {4, 2, 2, 3};
+        int[] tab2 = {4, 5, 6};
+        System.out.println(Arrays.toString(concatenateArrays(tab1, tab2)));
+//        System.out.println(Arrays.toString(concatenateAndSortArray(tab1,tab2)));
+        removeDuplicates(tab1, tab2);
+    }
 
-        }
-
-    }}
+}
 
