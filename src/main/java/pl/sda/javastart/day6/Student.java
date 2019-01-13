@@ -15,6 +15,16 @@ public class Student extends Person {
         this.scholarship = scholarship;
     }
 
+    @Override
+    public BigDecimal showIncome() {
+        return scholarship;
+    }
+
+    public void introduction() {
+        super.introduction();
+        System.out.println(" i studenciakiem");
+    }
+
     public Integer getIndexNo() {
         return indexNo;
     }

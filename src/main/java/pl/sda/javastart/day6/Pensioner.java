@@ -12,6 +12,14 @@ public class Pensioner extends Person {
         super(firstName, lastName, personId, age);
         this.pension = pension;
     }
+    @Override
+    public BigDecimal showIncome() {
+        return pension;
+    }
+    public void introduction() {
+        super.introduction();
+        System.out.print(" i emerytem");
+    }
 
     public BigDecimal getPension() {
         return pension;
