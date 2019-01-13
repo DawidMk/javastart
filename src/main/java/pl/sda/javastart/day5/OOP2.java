@@ -6,18 +6,18 @@ public class OOP2 {
 //        personsExample();
 //        referenceExample();*/
 //        staticFinal();
-        Person person1 = new Person("Anna", "Joanna");
-        Person person2 = new Person("Anna", "Joanna");
+        TestPerson person1 = new TestPerson("Anna", "Joanna");
+        TestPerson person2 = new TestPerson("Anna", "Joanna");
         System.out.println(person1.getIdentity());
         System.out.println(person2.getIdentity());
     }
 
     private static void staticFinal() {
-        Person person1 = new Person();
-//      Person person2 = new Person();
+        TestPerson person1 = new TestPerson();
+//      TestPerson person2 = new TestPerson();
 //        System.out.println(person1.getIdentity());
 //        System.out.println(person2.getIdentity());
-//        System.out.println("ile jest ludzi na świecie " + Person.counter);*/
+//        System.out.println("ile jest ludzi na świecie " + TestPerson.counter);*/
 
 
 //        System.out.println(CalculatorUtils.addStatic(1, 2));
@@ -33,7 +33,7 @@ public class OOP2 {
         System.out.println(obj.getPerson().getName());
         obj.getPerson().setName("Ola");
         System.out.println(obj.getPerson().getName());
-        Person personFromObj = obj.getPerson();
+        TestPerson personFromObj = obj.getPerson();
         personFromObj.setName("Anna");
         System.out.println(personFromObj.getName());
     }
@@ -49,9 +49,9 @@ public class OOP2 {
     }
 
     private static void personsExample() {
-        Person person1 = new Person();
-        Person person2 = new Person();
-//        Person person3 = new Person("Anna","Nowak",100);
+        TestPerson person1 = new TestPerson();
+        TestPerson person2 = new TestPerson();
+//        TestPerson person3 = new TestPerson("Anna","Nowak",100);
         person1.setName("Anna");
         person1.setLastName("Nowak");
         person1.setIdentity(100);

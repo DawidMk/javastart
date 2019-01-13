@@ -1,12 +1,14 @@
 package pl.sda.javastart.day5;
 
+import pl.sda.javastart.rozne.Test;
+
 import java.util.Objects;
 
-public class Person {
+public class TestPerson {
     private String name;
     private String lastName;
     private int identity;
-    static int counter; //int albo Integer
+    static int counter; //int ma domyślnie wartość 0 albo Integer ma domyślnie null
 
     static {
         counter = 0;
@@ -17,15 +19,15 @@ public class Person {
         this.identity = counter++;
     }
 
-    public Person() {
+    public TestPerson() {
     }
 
-    public Person(String name, String lastName) {
+    public TestPerson(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
     }
 
-    public Person(String name, String lastName, int identity) {
+    public TestPerson(String name, String lastName, int identity) {
 //        setName(name);
 //        setLastName(lastName);
 //        setIdentity(identity);
@@ -67,7 +69,7 @@ public class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
+        TestPerson person = (TestPerson) o;
         return identity == person.identity;
     }
 
