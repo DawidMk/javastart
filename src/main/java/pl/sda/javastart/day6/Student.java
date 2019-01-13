@@ -2,7 +2,7 @@ package pl.sda.javastart.day6;
 
 import java.math.BigDecimal;
 
-public class Student extends Person {
+public class Student extends Person implements NameHolder{
     private Integer indexNo;
     private BigDecimal scholarship;
 
@@ -20,9 +20,14 @@ public class Student extends Person {
         return scholarship;
     }
 
+    @Override
+    public String showYourName() {
+        return getFirstName()+" "+getLastName();
+    }
+
     public void introduction() {
         super.introduction();
-        System.out.println(" i studenciakiem");
+        System.out.print(" i studenciakiem");
     }
 
     public Integer getIndexNo() {
