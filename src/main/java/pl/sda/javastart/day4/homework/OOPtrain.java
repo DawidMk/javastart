@@ -27,7 +27,7 @@ public class OOPtrain {
 
 
 
-        train.setName("Srebrna Szczała");
+        train.setName("Srebrna Strzała");
         train.setWeight(100);
         train.setNumOfCars(2);
         train.setNumOfPassengers(220);
