@@ -1,6 +1,101 @@
 package pl.sda.javastart.day6.homework;
 
+import java.util.ArrayList;
+import java.util.List;
 
+public class Rectangle extends Figure {
+    private Point p1;
+    private Point p2;
+    private Point p3;
+    private Point p4;
+    private double width;
+    private double heigth;
+
+    public Rectangle() {
+    }
+
+    public Rectangle(Point p1, double width, double heigth) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.p3 = p3;
+        this.p4 = p4;
+        this.width = width;
+        this.heigth = heigth;
+    }
+
+    @Override
+    public String toString() {
+        return "prostokąt\nobwód: " + getCircuit() + "\npole: " + getArea() + "\nwierzchołki: " + getEdges().toString() + "\n";
+    }
+
+    @Override
+    public double getArea() {
+        return getHeigth() * getWidth();
+    }
+
+    @Override
+    public double getCircuit() {
+        return 2 * getHeigth() + 2 * getWidth();
+    }
+
+    @Override
+    public List<Point> getEdges() {
+        List list = new ArrayList<>(4);
+        Point p2 = new Point((int) (p1.getX() + width),p1.getY());
+        Point p3 = new Point((int) (p1.getX() + width),(int) (p1.getY() + heigth));
+        Point p4 = new Point(p1.getX(),(int) (p1.getY() + heigth));
+
+        list.add(p1);
+        list.add(p2);
+        list.add(p3);
+        list.add(p4);
+        return list;
+    }
+
+    public Point getP1() {
+        return p1;
+    }
+
+    public void setP1(Point p1) {
+        this.p1 = p1;
+    }
+
+    public Point getP2() {
+        return p2;
+    }
+
+    public void setP2(Point p2) {
+        this.p2 = p2;
+    }
+
+    public Point getP3() {
+        return p3;
+    }
+
+    public void setP3(Point p3) {
+        this.p3 = p3;
+    }
+
+    public Point getP4() {
+        return p4;
+    }
+
+    public void setP4(Point p4) {
+        this.p4 = p4;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+
+    public double getHeigth() {
+        return heigth;
+    }
+
+}
+
+/* BACKUP CODE
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,3 +189,4 @@ public class Rectangle extends Figure {
     }
 
 }
+*/
