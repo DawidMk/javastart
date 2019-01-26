@@ -137,44 +137,23 @@ public class OOPCustomers {
         return peopleList;
     }
 
+    // właściwe rozwiązanie
     private static Map<String, Map<Double, Integer>> mapOfMaps2() {
-//        Map<String, Map<Double, Integer>> outerMap = new HashMap<>();
-//        Map<Double, Integer> innerMap = new HashMap<>();
-//        for (Customer customer : sortedPeople()) {
-//            Double salary = customer.getSalary().doubleValue();
-////            Map<Double, Integer> innerMap = new HashMap<>();
-////            Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
-//            if (outerMap.containsKey(customer.getName().trim())) {
-//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
-//                innerMap = outerMap.get(customer.getName().trim());
-//                innerMap.put(salary, c + 1);
-//                outerMap.put(customer.getName().trim(), innerMap);
-//            } else {
-//                innerMap = new HashMap<>();
-//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
-//                innerMap.put(salary, c + 1);
-//                outerMap.put(customer.getName().trim(), innerMap);
-//            }
-//        }
         Map<String, Map<Double, Integer>> outerMap = new HashMap<>();
-        Map<Double, Integer> innerMap = new HashMap<>();
-        for (Customer customer : sortedPeople()) {
+        Map<Double, Integer> innerMap;// = new HashMap<>();
+        for (Customer customer : people) {
             Double salary = customer.getSalary().doubleValue();
             if (outerMap.containsKey(customer.getName().trim())) {
                 innerMap = outerMap.get(customer.getName().trim());
                 Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
-//                innerMap = outerMap.get(customer.getName().trim());
-
                 innerMap.put(salary, c + 1);
                 outerMap.put(customer.getName().trim(), innerMap);
             } else {
                 innerMap = new HashMap<>();
-//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
                 innerMap.put(salary, 1);
                 outerMap.put(customer.getName().trim(), innerMap);
             }
         }
-
         return outerMap;
     }
 
@@ -274,7 +253,24 @@ public class OOPCustomers {
         return resultMap;
     }
 
-
+//        Map<String, Map<Double, Integer>> outerMap = new HashMap<>();
+//        Map<Double, Integer> innerMap = new HashMap<>();
+//        for (Customer customer : sortedPeople()) {
+//            Double salary = customer.getSalary().doubleValue();
+////            Map<Double, Integer> innerMap = new HashMap<>();
+////            Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//            if (outerMap.containsKey(customer.getName().trim())) {
+//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//                innerMap = outerMap.get(customer.getName().trim());
+//                innerMap.put(salary, c + 1);
+//                outerMap.put(customer.getName().trim(), innerMap);
+//            } else {
+//                innerMap = new HashMap<>();
+//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//                innerMap.put(salary, c + 1);
+//                outerMap.put(customer.getName().trim(), innerMap);
+//            }
+//        }
 
     */
 
