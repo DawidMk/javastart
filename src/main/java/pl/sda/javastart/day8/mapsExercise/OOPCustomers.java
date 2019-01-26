@@ -24,7 +24,7 @@ public class OOPCustomers {
     public static void main(String[] args) {
 //        System.out.println(salariesMap()); //ctrl+shift+enter uzupelnia zamknięcie nawiasu
 //        System.out.println(peopleMap());
-       System.out.println("salary stats map");
+        System.out.println("salary stats map");
         System.out.println(salaryStatsMap());
         System.out.println("salaries map");
         System.out.println(salariesMap());
@@ -38,6 +38,8 @@ public class OOPCustomers {
         System.out.println(mapOfMaps2());
 //        System.out.println(arrayToList());
 //        System.out.println(arrayToListStream());
+        System.out.println("map of map");
+        System.out.println(mapOfMap());
     }
 
     //Napisz metodę, która zamieni tablicę people na listę people
@@ -104,7 +106,7 @@ public class OOPCustomers {
                 .collect(Collectors.groupingBy((Customer customer) -> customer.getSalary().doubleValue(), Collectors.counting()));
     }
 
-// próbna metoda
+    // próbna metoda
     private static Map<String, Map<Double, Integer>> mapOfMaps() {
         Map<String, Map<Double, Integer>> resultMap = new HashMap<>();
 
@@ -123,7 +125,8 @@ public class OOPCustomers {
         }
         return resultMap;
     }
-//NApisz metodę, która zwróci mapę map
+
+    //NApisz metodę, która zwróci mapę map
     private static List<Customer> sortedPeople() {
  /*       List<Customer> peopleList = new ArrayList<>();
        for (Customer customer : people) {
@@ -135,33 +138,103 @@ public class OOPCustomers {
     }
 
     private static Map<String, Map<Double, Integer>> mapOfMaps2() {
+//        Map<String, Map<Double, Integer>> outerMap = new HashMap<>();
+//        Map<Double, Integer> innerMap = new HashMap<>();
+//        for (Customer customer : sortedPeople()) {
+//            Double salary = customer.getSalary().doubleValue();
+////            Map<Double, Integer> innerMap = new HashMap<>();
+////            Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//            if (outerMap.containsKey(customer.getName().trim())) {
+//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//                innerMap = outerMap.get(customer.getName().trim());
+//                innerMap.put(salary, c + 1);
+//                outerMap.put(customer.getName().trim(), innerMap);
+//            } else {
+//                innerMap = new HashMap<>();
+//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//                innerMap.put(salary, c + 1);
+//                outerMap.put(customer.getName().trim(), innerMap);
+//            }
+//        }
         Map<String, Map<Double, Integer>> outerMap = new HashMap<>();
         Map<Double, Integer> innerMap = new HashMap<>();
         for (Customer customer : sortedPeople()) {
             Double salary = customer.getSalary().doubleValue();
-//            Map<Double, Integer> innerMap = new HashMap<>();
-//            Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
             if (outerMap.containsKey(customer.getName().trim())) {
-                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
                 innerMap = outerMap.get(customer.getName().trim());
+                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+//                innerMap = outerMap.get(customer.getName().trim());
+
                 innerMap.put(salary, c + 1);
                 outerMap.put(customer.getName().trim(), innerMap);
             } else {
                 innerMap = new HashMap<>();
-                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
-                innerMap.put(salary, c + 1);
+//                Integer c = innerMap.get(salary) == null ? 0 : innerMap.get(salary);
+                innerMap.put(salary, 1);
                 outerMap.put(customer.getName().trim(), innerMap);
             }
         }
+
         return outerMap;
     }
-//NApisz metodę, która zwróci mapę map
+
+    //NApisz metodę, która zwróci mapę map
     private static Map<String, Map<Double, Long>> mapOfMapsStream() {
         return Arrays.stream(people)
                 .collect(Collectors.groupingBy((Customer customer) -> customer.getName().trim(), Collectors.groupingBy((Customer c) -> c.getSalary().doubleValue(),
                         Collectors.counting())));
     }
+
+    public static Map<String, Map<BigDecimal, Integer>> mapOfMap() {
+        Map<String, Map<BigDecimal, Integer>> resultMap = new HashMap<>();
+
+        for (Customer customer : people) {
+
+            if (resultMap.containsKey(customer.getName().trim())) {
+                Map<BigDecimal, Integer> innerMap = resultMap.get(customer.getName().trim());
+
+                if (innerMap.containsKey(customer.getSalary())) {
+                    innerMap.put(customer.getSalary(), innerMap.get(customer.getSalary()) + 1);
+
+                } else {
+                    innerMap.put(customer.getSalary(), 1);
+                }
+
+            } else {
+                Map<BigDecimal, Integer> innerMap = new HashMap<>();
+                innerMap.put(customer.getSalary(), 1);
+                resultMap.put(customer.getName().trim(), innerMap);
+            }
+        }
+        return resultMap;
+    }
+
+//    public static Map<String,Map<BigDecimal,Integer>> mapOfMap(){
+//        Map<String,Map<BigDecimal,Integer>> resultMap = new HashMap<>();
+//        Map<BigDecimal,Integer> innerMap = new HashMap<>();
+//        for (Customer person : people) {
+//            Double salary = person.getSalary().doubleValue();
+//            if(resultMap.containsKey(person.getName().trim())){
+//                Integer c;
+//                if (innerMap.get(salary)== null){
+//                    c = 1;
+//                }else{
+//                    c = innerMap.get(salary) + 1;
+//                }
+//                innerMap = resultMap.get(person.getName().trim());
+//                innerMap.put(BigDecimal.valueOf(salary), c + 1);
+//                resultMap .put(person.getName().trim(), innerMap);
+//
+//            }else{
+//                Map<BigDecimal,Integer> innerInner = new HashMap<>();
+//                innerInner.put(person.getSalary(),1);
+//                resultMap.put(person.getName(),innerInner);
+//            }
+//        }return resultMap;
+//    }
 }
+
+
 // UNUSED CODE
 /*    private static Map<BigDecimal, List<String>> salariesMap() {
         Map<BigDecimal, List<String>> resultMap = new HashMap<>();
